@@ -34,5 +34,24 @@ jobs:
         use-isort: false
         extra-mypy-options: "--strict --pretty"
 
+  pytest:
+    name: Run tests
+
+    runs-on: self-hosted
+
+    container: 
+      image: python:3.12
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get modules
+      run: |
+          pip install -r requirements.txt
+    - name: pytest
+      run: |
+          pytest tests
+
+
+
 
 
