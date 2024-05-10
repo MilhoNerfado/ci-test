@@ -1,4 +1,4 @@
 def main():
-    variable = "How are you?"
+    variable = "How good?"
 
     print("hello world!", variable)
