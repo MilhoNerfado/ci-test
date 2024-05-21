@@ -13,45 +13,18 @@ permissions:
   contents: read
 
 jobs:
-  QA-check:
-    name: Code quality assurance
-
+  teste:
     runs-on: self-hosted
 
     container: 
-      image: python:3.12
+      image: zephyrprojectrtos/ci:latest
+      options: --user root
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: ricardochaves/python-lint@v1.4.0
-      with:
-        python-root-list: "src/"
-        use-mypy: true
-        use-black: true
-        use-pylint: false
-        use-pycodestyle: false
-        use-flake8: false
-        use-isort: false
-        extra-mypy-options: "--strict --pretty"
-
-  pytest:
-    name: Run tests
-
-    runs-on: self-hosted
-
-    container: 
-      image: python:3.12
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Get modules
       run: |
-          pip install -r requirements.txt
-    - name: pytest
-      run: |
-          pytest tests
-
-
+        cd /workdir/
+        west init -m https://github.com/edgebr/zephyr --mr zephyr_tury
+        west update
 
 
 
