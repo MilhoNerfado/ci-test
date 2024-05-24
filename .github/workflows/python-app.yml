@@ -18,6 +18,8 @@ jobs:
 
     container: 
       image: zephyrprojectrtos/ci:latest
+      volumes:
+        - /:/workdir
       options: --user root
 
     steps:
