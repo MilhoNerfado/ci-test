@@ -19,26 +19,12 @@ jobs:
     container: 
       image: zephyrprojectrtos/ci:latest
       volumes:
-        - /:/workdir
+        - /root:/workdir
       options: --user root
 
     steps:
       - run: |
-          pwd
-          ls -al /
-          echo "-----"
-          ls -al /__e
-          echo "-----"
-          ls -al /__w
-          echo "-----"
-          ls -al /github
-          echo "-----"
-          ls -al /home
-          echo "-----"
-          ls /workdir
-          echo "-----"
           cd /workdir
-          echo "-----"
           west init -m https://github.com/edgebr/zephyr --mr zephyr_tury
           west update
 
