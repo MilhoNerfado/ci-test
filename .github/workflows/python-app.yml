@@ -22,6 +22,8 @@ jobs:
 
     steps:
       - run: |
+          pwd
+          ls -al /
           cd /workdir/
           west init -m https://github.com/edgebr/zephyr --mr zephyr_tury
           west update
